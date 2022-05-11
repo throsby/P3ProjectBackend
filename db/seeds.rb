@@ -8,6 +8,8 @@ tower4 = Tower.create(next_neighbor: tower3.id)
 
 puts "🏰 Towers seeded"
 
+
+#In order for the following_plot ids to be common sense, the instantiations must be upside-down
 plot4 = Plot.create(water_level: 0, following_plot: nil, dehydration_rate: 0.1, tower_id: tower1.id)
 plot3 = Plot.create(water_level: 0, following_plot: plot4.id, dehydration_rate: 0.1, tower_id: tower1.id)
 plot2 = Plot.create(water_level: 0, following_plot: plot3.id, dehydration_rate: 0.1, tower_id: tower1.id)
