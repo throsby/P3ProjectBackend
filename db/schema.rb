@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2022_05_11_151303) do
 
   create_table "plots", force: :cascade do |t|
-    t.integer "water_level"
+    t.float "water_level"
     t.integer "following_plot"
-    t.integer "dehydration_rate"
+    t.float "dehydration_rate"
     t.integer "tower_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
