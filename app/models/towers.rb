@@ -22,4 +22,11 @@ class Tower < ActiveRecord::Base
             plot.water_level -= plot.dehydration_rate.to_f
         end
     end
+
+    def plotPopulate        
+        botPlot = Plot.create(water_level: 0, following_plot: nil, dehydration_rate: 0.1, tower_id: self.id)        
+        lowMidPlot = Plot.create(water_level: 0, following_plot: botPlot.id, dehydration_rate: 0.1, tower_id: self.id)
+        highMidPlot = Plot.create(water_level: 0, following_plot: lowMidPlot.id, dehydration_rate: 0.1, tower_id: self.id)
+        topPlot = Plot.create(water_level: 0, following_plot: highMidPlot.id, dehydration_rate: 0.1, tower_id: self.id)
+    end
 end

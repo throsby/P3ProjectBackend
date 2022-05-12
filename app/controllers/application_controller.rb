@@ -18,9 +18,12 @@ class ApplicationController < Sinatra::Base
     Tower.all.find(params[:id]).plots.to_json
   end
 
-  get "/test" do
-    { message: "You're on /test now!"}.to_json
+  post "/add_tower" do
+    newTower = Tower.create(next_neighbor: Tower.last)
+    newTower.plotPopulate
+    {newTower.id => newTower.plots}.to_json
   end
+
 
 
   # Add in a 404 error
