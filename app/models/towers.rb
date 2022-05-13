@@ -17,7 +17,7 @@ class Tower < ActiveRecord::Base
         end
     end
 
-    def dryOut
+    def dryOutTower
         self.plots.each do |plot|
             plot.water_level -= plot.dehydration_rate.to_f
         end
