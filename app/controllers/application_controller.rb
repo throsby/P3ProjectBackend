@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   end
 
   delete "/remove_tower" do
-    Tower.last.destroy()
+    Tower.last.destroy
     hash_out = {}
     Tower.all.each do |tower|
       hash_out[tower.id] = tower.plots
@@ -33,7 +33,17 @@ class ApplicationController < Sinatra::Base
     hash_out.to_json
   end
 
+  patch "/water/:tower/:plot" do
+    p params
+    p Tower.find(params[:tower].to_i)
+    p Plot.find(params[:plot].to_i)
+    # p [Plot.find(params[:plot])]
 
+  end
+
+  patch "/sample/:tower/:plot" do
+
+  end
 
   # Add in a 404 error
 
