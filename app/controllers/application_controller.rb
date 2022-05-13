@@ -24,6 +24,15 @@ class ApplicationController < Sinatra::Base
     {newTower.id => newTower.plots}.to_json
   end
 
+  delete "/remove_tower" do
+    Tower.last.destroy()
+    hash_out = {}
+    Tower.all.each do |tower|
+      hash_out[tower.id] = tower.plots
+    end
+    hash_out.to_json
+  end
+
 
 
   # Add in a 404 error
