@@ -16,7 +16,8 @@ class Plot < ActiveRecord::Base
     def dryOut
         update(water_level: water_level - dehydration_rate.to_f)
     end
-
+    
+    # Is this right? Should be the last one has no following plot
     def isTop?
         self.following_plot == nil
     end
